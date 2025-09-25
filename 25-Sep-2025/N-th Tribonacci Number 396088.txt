@@ -1,0 +1,17 @@
+# Problem: N-th Tribonacci Number - https://leetcode.com/problems/n-th-tribonacci-number/description/
+
+class Solution {
+public:
+    int value[1000];
+    bool ready[1000];
+    int tribonacci(long long x) {
+        if(x==0)return 0;
+        if(x<=2)return 1;
+        if(x==3)return 2;
+        if(ready[x])return value[x];
+        
+        ready[x]=true;
+        value[x]=tribonacci(x-1)+tribonacci(x-2)+tribonacci(x-3);
+        return tribonacci(x-1)+tribonacci(x-2)+tribonacci(x-3);
+    }
+};
